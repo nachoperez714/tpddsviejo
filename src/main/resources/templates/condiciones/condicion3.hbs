@@ -1,0 +1,58 @@
+{{#partial "titulo"}}
+Analizar historia del indicador
+{{/partial}}
+
+{{#partial "activoMetodologias"}}
+active
+{{/partial}}
+
+{{#partial "contenido"}}
+<p style = "font-size:24px">Analizar historia del indicador</p>
+
+	<form action="/condiciones/condicionTipo3" method="POST">
+	<div class="container" style="width:40%">
+		<div class="form-group">		
+			<label for="nombre">Indicador</label>
+			<select name="indicador" class="form-control" required>
+				<option value="">Seleccione un indicador</option>
+				{{#each indicadores}}
+				<option value= {{nombreIndicador}}> {{nombreIndicador}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+				<div class="form-group">		
+			<label for="nombre">OperacionIndicador</label>
+			<select name="operacionIndicador" class="form-control" required>
+				<option value="">Seleccione una operacion de indicador</option>
+				{{#each operacionesIndicador}}
+				<option value= {{nombre}}> {{nombre}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">		
+			<label for="nombre">Operacion</label>
+			<select name="operacion" class="form-control" required>
+				<option value="">Seleccione una operacionr</option>
+				{{#each operaciones}}
+				<option value= {{nombre}}> {{nombre}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="nombre">Valor</label>
+			<input type="text" placeholder="Ingrese un valor" name="valor" class="form-control" required>
+		</div>
+
+		<div class="container" style="width:30%">
+		<input class="btn btn-success" type="submit" value="Guardar">
+		</div>
+		</div>
+	</form>
+
+
+
+{{/partial}}
+{{>mainLayout.hbs}}

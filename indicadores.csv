@@ -1,0 +1,5 @@
+ingresoNeto;ingresoNetoOperacionesContinuas+ingresoNetoOperacionesDiscontinuas
+ROE;(ingresoNeto-dividendos)/capitalTotal
+ProporcionDeuda;FDS/ingresoNeto
+Margen;ingresoNeto/EBITDA
+IndicadorLoco;2*(EBITDA+2000)

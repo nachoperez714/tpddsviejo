@@ -1,0 +1,72 @@
+{{#partial "titulo"}}
+Indicadores
+{{/partial}}
+
+{{#partial "activoIndicadores"}}
+active
+{{/partial}}
+
+{{#partial "contenido"}}
+
+<body>
+	<div>
+	<h3>Indicadores</h3>
+	<form action="/indicadores" method="POST">
+	<div class="container" style="width:30%">
+		<div class="form-group">		
+			<label for="nombre">Indicador</label>
+			<select name="nombreIndicador" class="form-control" required>
+				<option value="">Seleccione un indicador</option>
+				{{#each indicadores}}
+				<option value= {{nombreIndicador}}> {{nombreIndicador}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">		
+			<label for="nombre">Empresa</label>
+			<select name="nombreEmpresa" class="form-control" required>
+				<option value="">Seleccione una empresa</option>
+				{{#each empresas}}
+				<option value= {{nombre}}> {{nombre}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="nombre">Año</label>
+			<input type="text" placeholder="Ingrese un año" name="anio" class="form-control" required>
+		</div>
+		<input class="btn btn-primary" type="submit" value="Aplicar">
+		</div>
+	</form>
+	<div class="container" style="width:30%">
+		<label for="nombre">Empresa:</label>
+		<option value= {{nombreEmpresa}}> {{nombreEmpresa}}</option>
+
+	<p></p>
+
+		<label for="nombre">Indicador:</label>
+		<option value= {{nombreIndicador}}> {{nombreIndicador}}</option>
+
+	<p></p>
+		<label for="nombre">Año:</label>
+		<option value= {{anio}}> {{anio}}</option>
+
+	<p></p>
+		<label for="nombre">Resultado:</label>
+		<option value= {{resultado}}> {{resultado}}</option>
+
+	<p></p>
+
+
+	</div>
+
+	<div>
+    	<a href="indicadores/nuevo"><input class="btn btn-success" type="submit" value="Crear indicador"></a>
+  	</div>
+</body>
+{{/partial}}
+{{>mainLayout.hbs}}
+
+

@@ -1,0 +1,70 @@
+{{#partial "activoEmpresas"}}
+active
+{{/partial}}
+
+
+{{#partial "titulo"}}
+Empresas
+{{/partial}}
+
+{{#partial "contenido"}}
+
+
+<body>
+	<h2>Buscar cuentas de empresas</h2>
+	<br />
+	<form action="/empresas" method="POST">
+		<div class="container" style="width:60%">
+		<div class="container">
+			<div class="form-group col-md-6">		
+			<label for="nombre">Elegir Empresa</label>
+			<select name="nombreEmpresa"class="form-control" required>
+				<option value="">Seleccione una empresa</option>
+				{{#each empresas}}
+				<option value= {{nombre}}> {{nombre}}</option>
+				{{/each}}
+			</select>
+			</div>
+		</div>
+			<div class="container">
+				<div class="form-group col-md-3">	
+	
+				<label for="anioMin">Año inicial</label>
+				<input type="text" id="anioMin" placeholder="Ingrese un año" name="anioMin" class="form-control" required>
+	
+				</div>
+				<div class="form-group col-md-3">	
+				<label for="anioMax">Año final</label>
+				<input type="text" placeholder="Ingrese un año" name="anioMax" class="form-control" required>
+				</div>
+			</div>
+			
+			<div class="container" style="width:20%">
+			<input class="btn btn-primary" type="submit" value="Buscar">
+			</div>
+
+			
+			</div>
+	</form>
+  	<p></p>
+  		<div class="table-responsive">
+		<h3>Cuentas encontradas</h3>
+	<table class="table">
+		<tr>
+			<th>Nombre</th>
+			<th>Año</th>
+			<th>Monto</th>
+		</tr>
+		{{#each cuentas}}
+		<tr>
+			<td>{{nombre}}</td>
+			<td>{{anio}}</td>
+			<td>{{monto}}</td>
+		</tr>
+		{{/each}}
+	</table>
+
+
+</body>
+{{/partial}}
+{{>mainLayout.hbs}}

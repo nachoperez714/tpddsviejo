@@ -1,0 +1,68 @@
+{{#partial "titulo"}}
+Metodologias
+{{/partial}}
+{{#partial "activoMetodologias"}}
+active
+{{/partial}}
+
+{{#partial "contenido"}}
+
+<body>
+	<div>
+	<h2>Aplicar Metodologia</h2>
+	<form action ="/metodologias" method = "POST">
+		<div class="container" style="width:60%">
+		<div class="form-group col-md-6">		
+			<label for="nombre">Metodologias</label>
+			<select name="nombreMetodologia" class="form-control" required>
+				<option value="">Seleccione una metodologia</option>
+				{{#each metodologias}}
+				<option value= {{nombre}}> {{nombre}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+			<div class="form-group col-md-6">		
+			<label for="nombre">Empresas</label>
+			<select name="empresas" class="form-control" size="5" multiple required>
+				{{#each empresas}}
+				<option value= {{nombre}}> {{nombre}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="container" style="width:20%">
+			<input class="btn btn-primary" type="submit" value="Aplicar">
+		</div>
+	</div>
+
+	<div class="table-responsive">
+		<h3>Ranking de empresas</h3>
+	<table class="table">
+		<tr>
+			<th>Empresa</th>
+			<th>Año de fundacion</th>
+			<th>Puntuacion</th>
+		</tr>
+		{{#each empresasOrdenadas}}
+		<tr>
+			<td>{{nombre}}</td>
+			<td>{{anioFundacion}}</td>
+			<td>{{puntuacion}}</td>
+		</tr>
+		{{/each}}
+	</table>
+	</div>	
+
+
+	</form>
+	</div>
+
+	<div>
+    	<a href="condiciones/nueva"><input class="btn btn-success" type="submit" value="Crear metodologia"></a>
+  	</div>
+<p></p>
+
+
+</body>
+{{/partial}}
+{{>mainLayout.hbs}}

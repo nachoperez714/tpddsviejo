@@ -1,0 +1,26 @@
+{{#partial "titulo"}}
+Crear Metodologia
+{{/partial}}
+
+{{#partial "activoMetodologias"}}
+active
+{{/partial}}
+{{#partial "contenido"}}
+
+<p style = "font-size:24px">Nueva metodologia</p>
+
+	<form action="/metodologias/nueva" method="POST">
+		
+		<div class="form-group">
+			<label for="nombre">Nombre</label>
+			<input type="text" placeholder="Ingrese un nombre" name="nombre" class="form-control" required>
+		</div>
+	
+	<input class="btn btn-success" type="submit" value="Guardar">
+
+	</form>
+
+
+
+{{/partial}}
+{{>mainLayout.hbs}}

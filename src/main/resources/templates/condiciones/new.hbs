@@ -1,0 +1,35 @@
+{{#partial "titulo"}}
+Condiciones
+{{/partial}}
+
+{{#partial "activoMetodologias"}}
+active
+{{/partial}}
+{{#partial "contenido"}}
+	<h2>Crear Metodologia - Condiciones</h2>
+	<form action="/condiciones/nueva" method="POST">
+	<div class="container" style="width:60%">
+		
+		
+			<p><b>Para crear una metodologia primero agregue las condiciones que desee</b></p>
+	
+		<div class="form-group">		
+			<label for="nombre">Condicion</label>
+			<select name="nombreCondicion" class="form-control" required>
+				<option value="">Seleccione una condicion</option>
+				<option value="Analizar indicador en los ultimos anios">Analizar indicador en los ultimos años</option>
+				<option value="Analizar indicadores entre empresas">Analizar indicadores entre empresas</option>
+				<option value="Analizar historia del indicador">Analizar historia del indicador</option>
+				<option value="Analizar crecimiento del indicador">Analizar crecimiento del indicador</option>
+			</select>
+		</div>
+
+		<input class="btn btn-primary"" type="submit" value="Configurar condicion">
+			<a href="../metodologias/nueva"><input class="btn btn-primary" value="Configurar metodologia"></a>
+			</div>
+	</form>
+
+
+
+{{/partial}}
+{{>mainLayout.hbs}}

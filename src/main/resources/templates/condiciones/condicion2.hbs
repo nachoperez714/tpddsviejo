@@ -1,0 +1,52 @@
+{{#partial "titulo"}}
+Analizar indicador entre empresas
+{{/partial}}
+
+{{#partial "activoMetodologias"}}
+active
+{{/partial}}
+
+
+{{#partial "contenido"}}
+
+<p style = "font-size:24px">Analizar indicador entre empresas</p>
+
+	<form action="/condiciones/condicionTipo2" method="POST">
+	
+	<div class="container" style="width:40%">
+		<div class="form-group">		
+			<label for="nombre">Indicador</label>
+			<select name="indicador" class="form-control" required>
+				<option value="">Seleccione un indicador</option>
+				{{#each indicadores}}
+				<option value= {{nombreIndicador}}> {{nombreIndicador}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+				<div class="form-group">		
+			<label for="nombre">Operacion</label>
+			<select name="operacionIndicador" class="form-control" required>
+				<option value="">Seleccione una operacion</option>
+				{{#each operacionesIndicador}}
+				<option value= {{nombre}}> {{nombre}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="nombre">Año</label>
+			<input type="text" placeholder="Ingrese un año" name="anio" class="form-control" required>
+		</div>
+
+		<div class="container" style="width:30%">
+		<input class="btn btn-success" type="submit" value="Guardar">
+		</div>
+		
+		</div>
+		
+	</form>
+
+
+{{/partial}}
+{{>mainLayout.hbs}}

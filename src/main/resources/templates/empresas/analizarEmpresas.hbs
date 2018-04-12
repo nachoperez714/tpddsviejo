@@ -1,0 +1,145 @@
+{{#partial "contenido"}}
+<!DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Analizar Empresas</title>
+</head>
+
+<body>
+
+	<form action="/proyectos" method="POST">
+		
+		<div class="form-group">		
+			<label for="nombre">Empresa</label>
+			<select name="nombreCondicion" class="custom-select">
+				<option value="-1">Seleccionar una empresa</option>
+				{{#each condiciones}}
+				<option value= {{idCondicion}}> {{idCondicion}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="nombre">Año inicial</label>
+			<input type="text" placeholder="Ingrese un año" name="nombre">
+		</div>
+	
+		<div class="form-group">		
+			<label for="costoEstimado">Año final</label>
+			<input type="text" placeholder="Ingrese un año" name="costoEstimado">
+		</div>
+		
+		<div class="form-group">
+			<input class="btn btn-primary btn-lg" type="submit" value="Buscar">
+		</div>
+
+	<div class="table-responsive">
+		<h3>Lista de cuentas</h3>
+	<table class="table">
+		<tr>
+			<th>Nombre</th>
+			<th>Año</th>
+			<th>Monto</th>
+		</tr>
+		{{#each ventas}}
+		<tr>
+			<td>{{fechaYhora}}</td>
+			<td>{{monto}}</td>
+			<td>
+				<a class="btn btn-secondary" href="ventaDetalle/{{supermercado.razonSocial}}/{{id}}">Ver detalle</a>
+			</td>
+		</tr>
+		{{/each}}
+	</table>
+	</div>	
+		<div class="form-group">
+			<input class="btn btn-primary btn-lg" type="submit" value="Aplicar metodologia">
+		</div>
+	</form>
+
+	<div>
+	<h3>Aplicar indicador</h3>
+	<form action="/proyectos" method="POST">
+		
+		<div class="form-group">		
+			<label for="nombre">Indicadores</label>
+			<select name="nombreCondicion" class="custom-select">
+				<option value="-1">Seleccionar indicador</option>
+				{{#each condiciones}}
+				<option value= {{idCondicion}}> {{idCondicion}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="nombre">Año inicial</label>
+			<input type="text" placeholder="Ingrese un año" name="nombre">
+		</div>
+
+		<div>
+			<label for="nombre">Resultado</label>
+			<option value= {{idCondicion}}> {{idCondicion}}</option>
+		</div>
+
+		<div class="form-group">
+			<input class="btn btn-primary btn-lg" type="submit" value="Aplicar">
+		</div>
+	</form>
+	</div>
+
+	<div>
+	<h3>Aplicar Metodologia</h3>
+	<form action="/proyectos" method="POST">
+		
+		<div class="form-group">		
+			<label for="nombre">Metodologias</label>
+			<select name="nombreCondicion" class="custom-select">
+				<option value="-1">Seleccionar metodologia</option>
+				{{#each condiciones}}
+				<option value= {{idCondicion}}> {{idCondicion}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+				<div class="form-group">		
+			<label for="nombre">Empresas</label>
+			<select name="nombreCondicion" class="custom-select">
+				<option value="-1">Seleccione una empresa</option>
+				{{#each condiciones}}
+				<option value= {{idCondicion}}> {{idCondicion}}</option>
+				{{/each}}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<input class="btn btn-primary btn-lg" type="submit" value="Agregar empresa a comparar">
+		</div>
+
+
+	<div class="table-responsive">
+		<h3>Empresas a comparar</h3>
+	<table class="table">
+		<tr>
+			<th>Empresa</th>
+		</tr>
+		{{#each ventas}}
+		<tr>
+			<td>{{nombreEmpresa}}</td>
+		</tr>
+		{{/each}}
+	</table>
+	</div>	
+
+		<div class="form-group">
+			<input class="btn btn-primary btn-lg" type="submit" value="Aplicar">
+		</div>
+	</form>
+	</div>
+
+		  <div>
+    	<a href="../"><input class="btn btn-primary btn-lg" type="submit" value="Ir al menu principal"></a>
+  	</div>
+</body>
+{{/partial}}
+{{>layout.hbs}}
